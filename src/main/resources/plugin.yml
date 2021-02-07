@@ -1,0 +1,9 @@
+name: VelocityVanish
+version: ${project.version}
+main: eu.endermite.velocityvanish.spigot.VelocityVanish
+api-version: 1.16
+authors: [ YouHaveTrouble ]
+description: Velocity compatibility for SuperVanish
+softdepend:
+  - SuperVanish
+  - PremiumVanish

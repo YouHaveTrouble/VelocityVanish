@@ -1,0 +1,9 @@
+{
+  "id":"velocityvanish",
+  "name":"VelocityVanish",
+  "version":"${project.version}",
+  "description":"Velocity compatibility for SuperVanish",
+  "authors":["YouHaveTrouble"],
+  "dependencies":[],
+  "main":"eu.endermite.velocityvanish.velocity.VelocityVanish"
+}
