@@ -17,14 +17,10 @@ public class MessageListener implements PluginMessageListener {
         String result = new BufferedReader(new InputStreamReader(targetStream)).lines()
                 .parallel().collect(Collectors.joining());
 
-        boolean state = Boolean.getBoolean(result);
-        if (state && !VanishAPI.isInvisible(player)) {
+        if (result.contains("true") && !VanishAPI.isInvisible(player)) {
             VanishAPI.hidePlayer(player);
-        } else if (!state && VanishAPI.isInvisible(player)) {
+        } else if (result.contains("false") && VanishAPI.isInvisible(player)) {
             VanishAPI.showPlayer(player);
         }
-
-
-
     }
 }
