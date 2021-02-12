@@ -94,4 +94,8 @@ public class VelocityVanish {
         return plugin;
     }
 
+    public boolean isVanished(UUID uuid) {
+        return vanishedPlayers.isVanished(uuid);
+    }
+
 }
