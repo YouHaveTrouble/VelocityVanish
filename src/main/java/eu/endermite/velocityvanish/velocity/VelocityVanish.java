@@ -90,4 +90,8 @@ public class VelocityVanish {
         event.setPing(ping);
     }
 
+    public static VelocityVanish getInstance() {
+        return plugin;
+    }
+
 }
