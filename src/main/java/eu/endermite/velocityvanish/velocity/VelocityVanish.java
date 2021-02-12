@@ -10,18 +10,14 @@ import com.velocitypowered.api.proxy.ServerConnection;
 import com.velocitypowered.api.proxy.messages.MinecraftChannelIdentifier;
 import com.velocitypowered.api.proxy.server.ServerPing;
 import org.slf4j.Logger;
-
-import java.io.*;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 public class VelocityVanish {
 
     private static VelocityVanish plugin;
     private static ProxyServer server;
     private static Logger logger;
-    private static VanishedPlayers vanishedPlayers;
+    private VanishedPlayers vanishedPlayers;
     private static MinecraftChannelIdentifier vanishCheckChannel;
 
     @Inject
@@ -78,7 +74,6 @@ public class VelocityVanish {
         if (vanishedPlayers.isVanished(event.getPlayer().getUniqueId())) {
             vanishedPlayers.setPlayer(event.getPlayer().getUniqueId(), false);
         }
-
     }
 
     @Subscribe(order = PostOrder.LAST)
@@ -91,7 +86,7 @@ public class VelocityVanish {
     @Subscribe(order = PostOrder.LAST)
     public void onProxyPing(com.velocitypowered.api.event.proxy.ProxyPingEvent event) {
         ServerPing ping = event.getPing();
-        ping = ping.asBuilder().onlinePlayers(VelocityVanish.server.getPlayerCount() - VelocityVanish.vanishedPlayers.getHowManyPlayersVanished()).build();
+        ping = ping.asBuilder().onlinePlayers(VelocityVanish.server.getPlayerCount() - vanishedPlayers.getHowManyPlayersVanished()).build();
         event.setPing(ping);
     }
 

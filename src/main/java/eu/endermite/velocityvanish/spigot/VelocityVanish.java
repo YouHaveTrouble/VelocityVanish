@@ -17,6 +17,10 @@ public final class VelocityVanish extends JavaPlugin {
         }
 
         plugin = this;
+        /*
+        Using multiple channels. Reasoning for this decision is to not use streams to read data, but just grab an uuid
+        from the connection data and acting on it.
+         */
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "velocity:vanish-true");
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "velocity:vanish-false");
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "velocity:vanish-check");

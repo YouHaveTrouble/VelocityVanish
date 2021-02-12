@@ -1,7 +1,6 @@
 package eu.endermite.velocityvanish.spigot;
 
 import org.bukkit.entity.Player;
-
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
